@@ -7,14 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sclt-check-data-error';
-  url = 'https://suachualaptop24h.com/tin-cong-ty/huong-dan-dat-lich-sua-laptop-nhanh-chong-cho-doi-da-la-di-vang-n6971.html';
-  route : ActivatedRoute;  
+  url = 'https://suachualaptop24h.com/tin-cong-ty/huong-dan-dat-lich-sua-laptop-nhanh-chong-cho-doi-da-la-di-vang-n6971.html';  
 
-  constructor(route : ActivatedRoute) {    
-    this.route = route;    
-  }
-
-  ngOnInit(){
-        
-  }
 }
