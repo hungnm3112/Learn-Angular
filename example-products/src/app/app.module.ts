@@ -4,13 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProductAlertComponent } from './product-alert/product-alert.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,    
     ProductAlertComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,    
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
