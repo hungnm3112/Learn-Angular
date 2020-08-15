@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Hero } from './hero';
 import { HEROES } from './moc-heroes';
@@ -10,16 +11,26 @@ import { MessagesService } from './messages.service';
   providedIn: 'root'
 })
 export class HeroService {
+  private heroesUrl ="/app/heroes";
+  constructor(
+    private messageService :MessagesService,
+    private http : HttpClient
+  ) { }
 
-  constructor(private messageService :MessagesService) { }
-
+  // getHeroes() : Observable<Hero[]> {
+  //   this.messageService.add('HeroService: fetched heroes');
+  //   return of(HEROES);
+  // }
   getHeroes() : Observable<Hero[]> {
-    this.messageService.add('HeroService: fetched heroes');
-    return of(HEROES);
+    return this.http.get<Hero[]>(this.heroesUrl);
   }
 
   getHero(id : number) : Observable<Hero> {
     this.messageService.add(`HeroesComponent: Selected hero id=${id}`);
     return of(HEROES.find(hero => hero.id===id));
+  }
+  
+  private log(message : string){
+    this.messageService.add(message);
   }
 }
